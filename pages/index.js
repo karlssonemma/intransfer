@@ -84,6 +84,17 @@ export default function Home() {
     }
   `;
 
+  const ContactBox = styled.article`
+    width: 100%;
+    min-height: max-content; //ikke bra
+    height: 400px;
+    background-color: blue;
+  `;
+
+  const ContactInfoContainer = styled.div`
+    display: flex;
+  `;
+
   return (
     <>
       <Navigation />
@@ -104,7 +115,7 @@ export default function Home() {
         <AboutText>Bacon ipsum dolor amet jowl bacon chislic corned beef ham hock, short loin alcatra rump shank bresaola ham burgdoggen. Cow short loin tenderloin short ribs sausage leberkas pork loin. Shoulder tail rump pig tenderloin t-bone tongue ham ribeye ball tip cupim boudin hamburger. Turducken drumstick boudin, doner ribeye sausage sirloin tail salami pork. Leberkas andouille chuck hamburger short ribs. Pork chop picanha meatloaf biltong ribeye prosciutto brisket kevin. Tri-tip bacon pork loin filet mignon frankfurter burgdoggen, strip steak brisket picanha buffalo beef ribs tenderloin venison.</AboutText>
       </PageSection>
 
-      <PageSection>
+      <PageSection style={{justifyContent: 'center'}}>
         <GridContainer>
           <GridImg
             src='/markus-spiske-hqCEQTc5gZA-unsplash.jpg'
@@ -116,6 +127,27 @@ export default function Home() {
             src='/mika-baumeister-PtabTe6iJ_8-unsplash.jpg'
           />
         </GridContainer>
+      </PageSection>
+
+      <PageSection>
+        <ContactBox>
+          <Subtitle>Kontakta oss</Subtitle>
+          <p>Bacon ipsum dolor amet jowl bacon chislic corned beef ham hock, short loin alcatra rump shank bresaola ham burgdoggen. Cow short loin tenderloin short ribs sausage leberkas pork loin. Shoulder tail rump pig tenderloin t-bone tongue ham ribeye ball tip cupim boudin hamburger.</p>
+        </ContactBox>
+        <ContactBox>
+          <ContactInfoContainer>
+            <Arrow src='/arrow.png' />
+            <p>eva@intransfer.se</p>
+          </ContactInfoContainer>
+          <ContactInfoContainer>
+            <Arrow src='/arrow.png' />
+            <p>eva@intransfer.se</p>
+          </ContactInfoContainer>
+          <ContactInfoContainer>
+            <Arrow src='/arrow.png' />
+            <p>eva@intransfer.se</p>
+          </ContactInfoContainer>
+        </ContactBox>
       </PageSection>
     </>
   )
