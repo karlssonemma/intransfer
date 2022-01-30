@@ -4,7 +4,8 @@ import theme from '../utils/theme';
 const PageSection = styled.section`
     width: 100%;
     min-height: 100vh;
-    background-color: lightgoldenrodyellow;
+    height: max-content;
+    background-color: white;
     padding: 0 ${props => props.theme.space[5]} 0 ${props => props.theme.space[5]};
 
     display: flex;

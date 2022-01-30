@@ -14,7 +14,7 @@ export default function Home() {
     height: max-content;
     padding: ${props => props.theme.space[5]};
 
-    background-color: green;
+    background-color: lightgray;
     font-family: ${props => props.theme.fonts.main};
 
     @media screen and (min-width: ${props => props.theme.breakpoints[1]}) {
@@ -90,19 +90,14 @@ export default function Home() {
 
   const GridContainer = styled.article`
     display: grid;
-    background-color: green;
+    /* background-color: green; */
     width: 100%;
     gap: 50px;
 
     @media screen and (min-width: ${props => props.theme.breakpoints[0]}) {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-      height: 400px;
-    }
-
-    @media screen and (min-width: ${props => props.theme.breakpoints[2]}) {
-      //bredden på griden vid større strl
-      width: 75%;
+      height: auto;
     }
   `;
   
@@ -150,7 +145,7 @@ export default function Home() {
     width: 100%;
     height: auto; //ikke bra
     padding: ${props => props.theme.space[4]};
-    background-color: yellow;
+    background-color: ${props => props.theme.colors.orange};
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -197,7 +192,7 @@ export default function Home() {
             <p>Bacon ipsum dolor amet jowl bacon chislic corned beef ham hock, short loin alcatra rump shank bresaola ham burgdoggen. Cow short loin tenderloin short ribs sausage leberkas pork loin. Shoulder tail rump pig tenderloin t-bone tongue ham ribeye ball tip cupim boudin hamburger.</p>
           </ContactText>
           <ContactInfo>
-              <p><Arrow src='/arrow.png' /> eva@intransfer.se</p>
+              <a><Arrow src='/arrow.png' /> eva@intransfer.se</a>
               <p><Arrow src='/arrow.png' /> eva@intransfer.se</p>
               <p><Arrow src='/arrow.png' /> eva@intransfer.se</p>  
           </ContactInfo>
