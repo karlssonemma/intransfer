@@ -16,6 +16,10 @@ export default function Home() {
 
     background-color: green;
     font-family: ${props => props.theme.fonts.main};
+
+    @media screen and (min-width: ${props => props.theme.breakpoints[1]}) {
+      width: 50%;
+    }
   `;
 
   const Heading = styled.h1`
@@ -40,6 +44,12 @@ export default function Home() {
     justify-content: center;
     align-items: flex-end;
     padding: 0;
+
+    @media screen and (min-width: ${props => props.theme.breakpoints[1]}) {
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+    }
   `;
 
   const AboutSection = styled(PageSection)`
@@ -147,13 +157,6 @@ export default function Home() {
     align-items: flex-start;
   `;
 
-  const ContactInfoContainer = styled.div`
-    display: flex;
-    margin: ${props => props.theme.space[2]};
-
-    
-  `;
-
   return (
     <>
       <Navigation />
@@ -194,18 +197,9 @@ export default function Home() {
             <p>Bacon ipsum dolor amet jowl bacon chislic corned beef ham hock, short loin alcatra rump shank bresaola ham burgdoggen. Cow short loin tenderloin short ribs sausage leberkas pork loin. Shoulder tail rump pig tenderloin t-bone tongue ham ribeye ball tip cupim boudin hamburger.</p>
           </ContactText>
           <ContactInfo>
-            <ContactInfoContainer>
-              <Arrow src='/arrow.png' />
-              <p>eva@intransfer.se</p>
-            </ContactInfoContainer>
-            <ContactInfoContainer>
-              <Arrow src='/arrow.png' />
-              <p>eva@intransfer.se</p>
-            </ContactInfoContainer>
-            <ContactInfoContainer>
-              <Arrow src='/arrow.png' />
-              <p>eva@intransfer.se</p>
-            </ContactInfoContainer>
+              <p><Arrow src='/arrow.png' /> eva@intransfer.se</p>
+              <p><Arrow src='/arrow.png' /> eva@intransfer.se</p>
+              <p><Arrow src='/arrow.png' /> eva@intransfer.se</p>  
           </ContactInfo>
         </ContactContainer>
       </ContactSection>
