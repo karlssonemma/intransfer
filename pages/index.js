@@ -30,6 +30,28 @@ export default function Home() {
     font-family: ${props => props.theme.fonts.main};
   `;
 
+  const ContactSection = styled(PageSection)`
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  `;
+
+  const LandingSection = styled(PageSection)`
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0;
+  `;
+
+  const AboutSection = styled(PageSection)`
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  `;
+
+  const ImageSection = styled(PageSection)`
+    justify-content: center;
+  `;
+
   const CtaLink = styled.a`
     display: block;
     color: ${props => props.theme.colors.orange};
@@ -51,12 +73,15 @@ export default function Home() {
   const AboutText = styled.p`
     font-family: ${props => props.theme.fonts.main};
     line-height: 180%;
+    @media screen and (min-width: ${props => props.theme.breakpoints[1]}) {
+      width: 50%;
+    }
   `;
 
   const GridContainer = styled.article`
     display: grid;
     background-color: green;
-    width: 100vw;
+    width: 100%;
     gap: 50px;
 
     @media screen and (min-width: ${props => props.theme.breakpoints[0]}) {
@@ -84,22 +109,55 @@ export default function Home() {
     }
   `;
 
-  const ContactBox = styled.article`
+  const ContactContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    max-width: 600px; // vet ej om denna
+
+    @media screen and (min-width: ${props => props.theme.breakpoints[0]}) {
+      flex-direction: row;
+    }
+  `;
+
+  const ContactText = styled.article`
     width: 100%;
-    min-height: max-content; //ikke bra
-    height: 400px;
-    background-color: blue;
+    height: max-content; //ikke bra
+    /* padding: 0 ${props => props.theme.space[4]}; */
+    margin-bottom: ${props => props.theme.space[4]};
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media screen and (min-width: ${props => props.theme.breakpoints[0]}) {
+      text-align: right;
+      margin-right: ${props => props.theme.space[4]};
+    }
+  `;
+
+  const ContactInfo = styled.article`
+    width: 100%;
+    height: auto; //ikke bra
+    padding: ${props => props.theme.space[4]};
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
   `;
 
   const ContactInfoContainer = styled.div`
     display: flex;
+    margin: ${props => props.theme.space[2]};
+
+    
   `;
 
   return (
     <>
       <Navigation />
-      <PageSection style={{justifyContent: 'center', alignItems: 'flex-end',
-      padding: '0'}}>
+      <LandingSection>
         <LandingBlock>
           <Heading>Vi printar logos.</Heading>
           <p>Structured Query Language är ett standardiserat programspråk för att hämta och modifiera data i en relationsdatabas. SQL uttalas bokstav för bokstav eller ibland "s'ikuell" som i engelskans "sequel"</p>
@@ -108,14 +166,14 @@ export default function Home() {
             <p style={{display: 'inline-block', marginLeft: '0.5em'}}>Vill ni veta mer? Kontakta oss här</p>
           </CtaLink>
         </LandingBlock>
-      </PageSection>
+      </LandingSection>
 
-      <PageSection style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start'}}>
+      <AboutSection>
         <Subtitle>Subtitle</Subtitle>
         <AboutText>Bacon ipsum dolor amet jowl bacon chislic corned beef ham hock, short loin alcatra rump shank bresaola ham burgdoggen. Cow short loin tenderloin short ribs sausage leberkas pork loin. Shoulder tail rump pig tenderloin t-bone tongue ham ribeye ball tip cupim boudin hamburger. Turducken drumstick boudin, doner ribeye sausage sirloin tail salami pork. Leberkas andouille chuck hamburger short ribs. Pork chop picanha meatloaf biltong ribeye prosciutto brisket kevin. Tri-tip bacon pork loin filet mignon frankfurter burgdoggen, strip steak brisket picanha buffalo beef ribs tenderloin venison.</AboutText>
-      </PageSection>
+      </AboutSection>
 
-      <PageSection style={{justifyContent: 'center'}}>
+      <ImageSection>
         <GridContainer>
           <GridImg
             src='/markus-spiske-hqCEQTc5gZA-unsplash.jpg'
@@ -127,28 +185,30 @@ export default function Home() {
             src='/mika-baumeister-PtabTe6iJ_8-unsplash.jpg'
           />
         </GridContainer>
-      </PageSection>
+      </ImageSection>
 
-      <PageSection>
-        <ContactBox>
-          <Subtitle>Kontakta oss</Subtitle>
-          <p>Bacon ipsum dolor amet jowl bacon chislic corned beef ham hock, short loin alcatra rump shank bresaola ham burgdoggen. Cow short loin tenderloin short ribs sausage leberkas pork loin. Shoulder tail rump pig tenderloin t-bone tongue ham ribeye ball tip cupim boudin hamburger.</p>
-        </ContactBox>
-        <ContactBox>
-          <ContactInfoContainer>
-            <Arrow src='/arrow.png' />
-            <p>eva@intransfer.se</p>
-          </ContactInfoContainer>
-          <ContactInfoContainer>
-            <Arrow src='/arrow.png' />
-            <p>eva@intransfer.se</p>
-          </ContactInfoContainer>
-          <ContactInfoContainer>
-            <Arrow src='/arrow.png' />
-            <p>eva@intransfer.se</p>
-          </ContactInfoContainer>
-        </ContactBox>
-      </PageSection>
+      <ContactSection>
+        <ContactContainer>
+          <ContactText>
+            <Subtitle>Kontakta oss</Subtitle>
+            <p>Bacon ipsum dolor amet jowl bacon chislic corned beef ham hock, short loin alcatra rump shank bresaola ham burgdoggen. Cow short loin tenderloin short ribs sausage leberkas pork loin. Shoulder tail rump pig tenderloin t-bone tongue ham ribeye ball tip cupim boudin hamburger.</p>
+          </ContactText>
+          <ContactInfo>
+            <ContactInfoContainer>
+              <Arrow src='/arrow.png' />
+              <p>eva@intransfer.se</p>
+            </ContactInfoContainer>
+            <ContactInfoContainer>
+              <Arrow src='/arrow.png' />
+              <p>eva@intransfer.se</p>
+            </ContactInfoContainer>
+            <ContactInfoContainer>
+              <Arrow src='/arrow.png' />
+              <p>eva@intransfer.se</p>
+            </ContactInfoContainer>
+          </ContactInfo>
+        </ContactContainer>
+      </ContactSection>
     </>
   )
 }

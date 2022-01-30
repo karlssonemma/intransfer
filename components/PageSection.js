@@ -10,6 +10,11 @@ const PageSection = styled.section`
     display: flex;
     //annan løsning bætter om man vill ændra font i framtiden
     font-family: ${props => props.theme.fonts.main};
+
+    @media screen and (min-width: ${props => props.theme.breakpoints[1]}) {
+      //padding
+        padding: 200px;
+    }
 `;
 
 export default PageSection;
