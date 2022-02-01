@@ -6,7 +6,7 @@ const PageSection = styled.section`
     min-height: 100vh;
     height: max-content;
     background-color: white;
-    padding: 0 ${props => props.theme.space[5]} 0 ${props => props.theme.space[5]};
+    padding: 0 ${props => props.theme.space[5]};
 
     display: flex;
     //annan løsning bætter om man vill ændra font i framtiden
@@ -15,6 +15,34 @@ const PageSection = styled.section`
     @media screen and (min-width: ${props => props.theme.breakpoints[1]}) {
       //padding
         padding: 200px;
+    }
+
+    &.landing-section {
+      justify-content: center;
+      align-items: flex-end;
+      padding: 0;
+
+      @media screen and (min-width: ${props => props.theme.breakpoints[1]}) {
+        justify-content: flex-end;
+        align-items: center;
+        position: relative;
+      }
+    }
+
+    &.about-section {
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    &.image-section {
+      justify-content: center;
+    }
+
+    &.contact-section {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 `;
 

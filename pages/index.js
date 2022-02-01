@@ -19,6 +19,8 @@ export default function Home() {
 
     @media screen and (min-width: ${props => props.theme.breakpoints[1]}) {
       width: 50%;
+      padding: 80px;
+      padding-right: 200px;
     }
   `;
 
@@ -32,34 +34,6 @@ export default function Home() {
 
     font-size: ${props => props.theme.fontSizes.l};
     font-family: ${props => props.theme.fonts.main};
-  `;
-
-  const ContactSection = styled(PageSection)`
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  `;
-
-  const LandingSection = styled(PageSection)`
-    justify-content: center;
-    align-items: flex-end;
-    padding: 0;
-
-    @media screen and (min-width: ${props => props.theme.breakpoints[1]}) {
-      justify-content: flex-end;
-      align-items: center;
-      position: relative;
-    }
-  `;
-
-  const AboutSection = styled(PageSection)`
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-  `;
-
-  const ImageSection = styled(PageSection)`
-    justify-content: center;
   `;
 
   const CtaLink = styled.a`
@@ -155,7 +129,7 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      <LandingSection>
+      <PageSection className='landing-section'>
         <LandingBlock>
           <Heading>Vi printar logos.</Heading>
           <p>Structured Query Language är ett standardiserat programspråk för att hämta och modifiera data i en relationsdatabas. SQL uttalas bokstav för bokstav eller ibland "s'ikuell" som i engelskans "sequel"</p>
@@ -164,14 +138,14 @@ export default function Home() {
             <p style={{display: 'inline-block', marginLeft: '0.5em'}}>Vill ni veta mer? Kontakta oss här</p>
           </CtaLink>
         </LandingBlock>
-      </LandingSection>
+      </PageSection>
 
-      <AboutSection>
+      <PageSection className='about-section'>
         <Subtitle>Subtitle</Subtitle>
         <AboutText>Bacon ipsum dolor amet jowl bacon chislic corned beef ham hock, short loin alcatra rump shank bresaola ham burgdoggen. Cow short loin tenderloin short ribs sausage leberkas pork loin. Shoulder tail rump pig tenderloin t-bone tongue ham ribeye ball tip cupim boudin hamburger. Turducken drumstick boudin, doner ribeye sausage sirloin tail salami pork. Leberkas andouille chuck hamburger short ribs. Pork chop picanha meatloaf biltong ribeye prosciutto brisket kevin. Tri-tip bacon pork loin filet mignon frankfurter burgdoggen, strip steak brisket picanha buffalo beef ribs tenderloin venison.</AboutText>
-      </AboutSection>
+      </PageSection>
 
-      <ImageSection>
+      <PageSection className='image-section'>
         <GridContainer>
           <GridImg
             src='/markus-spiske-hqCEQTc5gZA-unsplash.jpg'
@@ -183,9 +157,9 @@ export default function Home() {
             src='/mika-baumeister-PtabTe6iJ_8-unsplash.jpg'
           />
         </GridContainer>
-      </ImageSection>
+      </PageSection>
 
-      <ContactSection>
+      <PageSection className='contact-section'>
         <ContactContainer>
           <ContactText>
             <Subtitle>Kontakta oss</Subtitle>
@@ -197,7 +171,7 @@ export default function Home() {
               <p><Arrow src='/arrow.png' /> eva@intransfer.se</p>  
           </ContactInfo>
         </ContactContainer>
-      </ContactSection>
+      </PageSection>
     </>
   )
 }
