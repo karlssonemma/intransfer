@@ -1,7 +1,7 @@
 const theme = {
     breakpoints: [ '34em', '54em', '73em', '91em' ],
     colors: {
-        white: '#FFFFF',
+        white: '#FFFFFF',
         orange: '#CF6902',
         darkred: '#692017',
         black: '#22222'

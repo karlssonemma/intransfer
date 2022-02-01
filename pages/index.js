@@ -2,6 +2,7 @@ import theme from '../utils/theme';
 import styled from 'styled-components';
 import Navigation from '../components/Navigation';
 import PageSection from '../components/PageSection';
+import CtaLink from '../components/CtaLink';
 
 import Image from 'next/image';
 
@@ -14,8 +15,12 @@ export default function Home() {
     height: max-content;
     padding: ${props => props.theme.space[5]};
 
-    background-color: lightgray;
+    background-color: ${props => props.theme.colors.white};
     font-family: ${props => props.theme.fonts.main};
+    font-weight: 200;
+    line-height: 180%;
+
+    z-index: 10;
 
     @media screen and (min-width: ${props => props.theme.breakpoints[1]}) {
       width: 50%;
@@ -24,9 +29,17 @@ export default function Home() {
     }
   `;
 
+  const BgImage = styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+  `;
+
   const Heading = styled.h1`
     font-size: ${props => props.theme.fontSizes.xl};
     margin-bottom: ${props => props.theme.space[2]};
+    font-weight: 400;
   `;
 
   const Subtitle = styled.h2`
@@ -34,16 +47,7 @@ export default function Home() {
 
     font-size: ${props => props.theme.fontSizes.l};
     font-family: ${props => props.theme.fonts.main};
-  `;
-
-  const CtaLink = styled.a`
-    display: block;
-    color: ${props => props.theme.colors.orange};
-    cursor: pointer;
-    margin-top: ${props => props.theme.space[2]};
-    :hover {
-      text-decoration: underline;
-    }
+    font-weight: 400;
   `;
 
   const Arrow = styled.img`
@@ -57,6 +61,9 @@ export default function Home() {
   const AboutText = styled.p`
     font-family: ${props => props.theme.fonts.main};
     line-height: 180%;
+
+    font-weight: 200;
+    
     @media screen and (min-width: ${props => props.theme.breakpoints[1]}) {
       width: 50%;
     }
@@ -109,16 +116,19 @@ export default function Home() {
     flex-direction: column;
     justify-content: center;
 
+    font-weight: 200;
+    line-height: 180%;
+
     @media screen and (min-width: ${props => props.theme.breakpoints[0]}) {
       text-align: right;
-      margin-right: ${props => props.theme.space[4]};
+      margin-right: ${props => props.theme.space[5]};
     }
   `;
 
   const ContactInfo = styled.article`
     width: 100%;
     height: auto; //ikke bra
-    padding: ${props => props.theme.space[4]};
+    padding: ${props => props.theme.space[5]};
     background-color: ${props => props.theme.colors.orange};
     display: flex;
     flex-direction: column;
@@ -130,17 +140,15 @@ export default function Home() {
     <>
       <Navigation />
       <PageSection className='landing-section'>
+        <BgImage src='/bank-phrom-Tzm3Oyu_6sk-unsplash.jpg' />
         <LandingBlock>
           <Heading>Vi printar logos.</Heading>
           <p>Structured Query Language är ett standardiserat programspråk för att hämta och modifiera data i en relationsdatabas. SQL uttalas bokstav för bokstav eller ibland "s'ikuell" som i engelskans "sequel"</p>
-          <CtaLink>
-            <Arrow src='/arrow.png' />
-            <p style={{display: 'inline-block', marginLeft: '0.5em'}}>Vill ni veta mer? Kontakta oss här</p>
-          </CtaLink>
+          <CtaLink />
         </LandingBlock>
       </PageSection>
 
-      <PageSection className='about-section'>
+      <PageSection className='about-section' id='about'>
         <Subtitle>Subtitle</Subtitle>
         <AboutText>Bacon ipsum dolor amet jowl bacon chislic corned beef ham hock, short loin alcatra rump shank bresaola ham burgdoggen. Cow short loin tenderloin short ribs sausage leberkas pork loin. Shoulder tail rump pig tenderloin t-bone tongue ham ribeye ball tip cupim boudin hamburger. Turducken drumstick boudin, doner ribeye sausage sirloin tail salami pork. Leberkas andouille chuck hamburger short ribs. Pork chop picanha meatloaf biltong ribeye prosciutto brisket kevin. Tri-tip bacon pork loin filet mignon frankfurter burgdoggen, strip steak brisket picanha buffalo beef ribs tenderloin venison.</AboutText>
       </PageSection>
@@ -159,16 +167,16 @@ export default function Home() {
         </GridContainer>
       </PageSection>
 
-      <PageSection className='contact-section'>
+      <PageSection className='contact-section' id='contact'>
         <ContactContainer>
           <ContactText>
             <Subtitle>Kontakta oss</Subtitle>
             <p>Bacon ipsum dolor amet jowl bacon chislic corned beef ham hock, short loin alcatra rump shank bresaola ham burgdoggen. Cow short loin tenderloin short ribs sausage leberkas pork loin. Shoulder tail rump pig tenderloin t-bone tongue ham ribeye ball tip cupim boudin hamburger.</p>
           </ContactText>
           <ContactInfo>
-              <a><Arrow src='/arrow.png' /> eva@intransfer.se</a>
-              <p><Arrow src='/arrow.png' /> eva@intransfer.se</p>
-              <p><Arrow src='/arrow.png' /> eva@intransfer.se</p>  
+              <a><Arrow src='/message.png' /> eva@intransfer.se</a>
+              <p><Arrow src='/telephone.png' /> eva@intransfer.se</p>
+              <p><Arrow src='/placeholder.png' /> eva@intransfer.se</p>  
           </ContactInfo>
         </ContactContainer>
       </PageSection>
